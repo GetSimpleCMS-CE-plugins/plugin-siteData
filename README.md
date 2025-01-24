@@ -9,6 +9,8 @@ Add custom easy to update fields in your site templates, like Phone Number, Emai
 
 [Support me](https://ko-fi.com/multicolorplugins)
 
+
+![logo](https://i.imgur.com/YHNFo5i.jpeg)
 ----------------------
 
 [GetSimple CMS CE Project]([https://ko-fi.com/multicolorplugins](https://getsimple-ce.ovh/))
