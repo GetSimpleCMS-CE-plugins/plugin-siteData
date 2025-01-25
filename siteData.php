@@ -11,7 +11,7 @@ register_plugin(
 	'Multicolor',  //Plugin author
 	'https://ko-fi.com/multicolorplugins/', //author website
 	'Add custom easy to update fields in your site templates, like Phone Number, Email Address, Business Hours, etc.', //Plugin description
-	'plugins', //page type - on which admin tab to display
+	'pages', //page type - on which admin tab to display
 	'siteDataBackend'  //main function (administration)
 );
 
