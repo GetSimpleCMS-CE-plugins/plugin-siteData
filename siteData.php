@@ -18,7 +18,7 @@ register_plugin(
 # activate filter 
 
 # add a link in the admin tab 'theme'
-add_action('pages-sidebar', 'createSideMenu', array($thisfile, 'SiteData 🤖'));
+add_action('pages-sidebar', 'createSideMenu', array($thisfile, 'Site Data 🤖'));
 add_action('theme-header', 'siteDataShortcode');
 
 # functions
