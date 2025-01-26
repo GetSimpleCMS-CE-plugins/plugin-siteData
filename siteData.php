@@ -9,7 +9,7 @@ register_plugin(
 	'siteData', 	//Plugin name
 	'2.0', 			//Plugin version
 	'Multicolor', 	//Plugin author
-	'https://ko-fi.com/multicolorplugins/', //author website
+	'https://getsimple-ce.ovh/donate', //author website
 	'Add custom easy to update fields in your site templates, like Phone Number, Email Address, Business Hours, etc.', //Plugin description
 	'pages', 		//page type - on which admin tab to display
 	'siteDataBackend' //main function (administration)
