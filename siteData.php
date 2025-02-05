@@ -7,7 +7,7 @@ $thisfile = basename(__FILE__, ".php");
 register_plugin(
 	$thisfile, 		//Plugin id
 	'siteData', 	//Plugin name
-	'2.1', 			//Plugin version
+	'2.2', 			//Plugin version
 	'Multicolor & RisingIsland', 	//Plugin author
 	'https://getsimple-ce.ovh/donate', //author website
 	'Add custom easy to update fields in your site templates, like Phone Number, Email Address, Business Hours, etc.', //Plugin description
@@ -27,16 +27,17 @@ function siteDataBackend(){
 }
 
 function siteDataReturn($matches){
-	$match = $matches[1];
-	$file = file_get_contents(GSDATAOTHERPATH . 'SiteDataSettings.json');
-	$jsfile = json_decode($file, true);
+    $match = trim($matches[1]); // Usuwamy ewentualne białe znaki
+    $file = file_get_contents(GSDATAOTHERPATH . 'SiteDataSettings.json');
+    $jsfile = json_decode($file, true);
 
-	foreach ($jsfile as $item) {
-		if ($item['id'] == $match) {
-			return str_replace("\u0027", "'",$item['data']);;
-		};
-	};
-};
+    foreach ($jsfile as $item) {
+        if ($item['id'] == $match) {
+            return htmlspecialchars_decode(str_replace("\u0027", "'", $item['data']), ENT_QUOTES);
+        }
+    }
+    return ''; 
+}
 
 function siteData($matches){
 	$match = $matches;
@@ -51,12 +52,14 @@ function siteData($matches){
 };
 
 function siteDataShortcode(){
-	global $content;
-	$newcontent = preg_replace_callback(
-		'/\\[% siteData=(.*) %\\]/i',
-		"siteDataReturn",
-		$content
-	);
-	$content = $newcontent;
+    global $content;
+    
+     $newcontent = preg_replace_callback(
+        '/\[%\s*siteData=(.*?)\s*%\]/i',
+        "siteDataReturn",
+        $content
+    );
+
+     $content = html_entity_decode($newcontent, ENT_QUOTES);
 }
 ?>
